@@ -1,0 +1,7 @@
+.custom-invalid-text {
+  color: red;
+}
+
+.custom-invalid-text.hidden {
+  display: none
+}
