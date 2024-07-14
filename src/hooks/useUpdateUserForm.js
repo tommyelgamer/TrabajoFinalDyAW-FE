@@ -3,7 +3,7 @@ import { useCookies } from "react-cookie";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import UserService from "../services/UserService";
 
-const useUpdateUserForm = () => {
+const useUpdateUserForm = (id) => {
   const navigate = useNavigate();
   const [cookies] = useCookies(['jwt']);
   const queryClient = useQueryClient();
@@ -73,7 +73,7 @@ const useUpdateUserForm = () => {
     
     if (formIsInValid) return;
 
-    mutation.mutate(user, {
+    mutation.mutate({id, user}, {
       onSuccess: () => navigate('/user'),
       onError: (e) => {
         const error_div = document.getElementById('form-error');

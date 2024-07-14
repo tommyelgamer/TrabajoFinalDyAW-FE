@@ -2,11 +2,12 @@ import useRequirePermission from '../hooks/useRequirePermission';
 import useUpdateUserForm from '../hooks/useUpdateUserForm';
 import useGetUserById from '../hooks/useGetUserById';
 import { useParams } from 'react-router-dom';
+import useCheckLoggedIn from '../hooks/useCheckLoggedIn';
 
 const UpdateUserPage = () => {
   useCheckLoggedIn();
   const params = useParams();
-  const { onSubmit } = useUpdateUserForm();
+  const { onSubmit } = useUpdateUserForm(params.id);
   const { isLoading, isError, error, data } = useGetUserById(params.id);
 
   const hasPermission = useRequirePermission('UPDATE_USER');
@@ -27,7 +28,7 @@ const UpdateUserPage = () => {
           <div id="name-feedback" className="invalid-feedback"></div>
         </div>
         <div className="mb-2 form-floating">
-          <input type="text" id="password" className="form-control" placeholder="Contraseña" />
+          <input type="password" id="password" className="form-control" placeholder="Contraseña" />
           <label htmlFor="password" className="form-label">Contraseña</label>
           <div id="password-feedback" className="invalid-feedback"></div>
           </div>

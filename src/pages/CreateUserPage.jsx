@@ -18,7 +18,7 @@ const CreateUserPage = () => {
           <div id="name-feedback" className="invalid-feedback"></div>
         </div>
         <div className="mb-2 form-floating">
-          <input type="text" id="password" className="form-control" placeholder="Contraseña" />
+          <input type="password" id="password" className="form-control" placeholder="Contraseña" />
           <label htmlFor="password" className="form-label">Contraseña</label>
           <div id="password-feedback" className="invalid-feedback"></div>
           </div>
